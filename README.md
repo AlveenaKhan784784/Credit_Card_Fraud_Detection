@@ -1,30 +1,57 @@
-# Credit_Card_Fraud_Detection
+# Credit Card Fraud Detection
 
-# Objective
-This project aims to detect fraudulent credit card transactions using machine learning techniques. The goal is to build a model that can identify fraudulent transactions to help prevent financial losses.
+## Objective
+This project aims to detect fraudulent credit card transactions using machine learning techniques. The goal is to build a robust model capable of identifying fraudulent activity and helping prevent financial losses for banks and customers.
 
- Source : [Link to dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
- 
+**Source**: [Kaggle - Credit Card Fraud Detection Dataset](https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud)
+
+---
+
 ## Tools and Technologies
 - **Programming Language**: Python
-- **Libraries**: Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn
-- **Model Used**:Random Forest
+- **Libraries**: pandas, NumPy, scikit-learn, matplotlib, seaborn
+- **Model Used**: Random Forest Classifier
+- **Imbalance Handling**: SMOTE (Synthetic Minority Over-sampling Technique)
+
+---
 
 ## Project Workflow
-1. **Data Collection**:
-   - Retrieved the credit card transaction dataset from Kaggle.
-2. **Data Preprocessing**:
-   - Handled missing values (if any).
-   - Scaled the `Amount` feature and transformed the `Time` feature for model compatibility.
-   - Split the dataset into training and testing sets.
-3. **Feature Engineering**:
-   - Explored feature importance and created new features as necessary.
-   - Balanced the dataset using techniques like **SMOTE (Synthetic Minority Over-sampling Technique)**.
-4. **Modeling**:
-   - Trained machine learning model including  **Random Forest**
-   - Tuned hyperparameters using cross-validation to improve model performance.
-5. **Model Evaluation**:
-   - Evaluated models using metrics such as **accuracy**, **precision**, **recall**, **F1-score**, and **ROC-AUC**.
-   - Used confusion matrices to visualize the performance of the models.
-6. **Results Visualization**:
-   - Visualized model performance metrics and feature importance.
+
+### 1. Data Collection
+- Retrieved the dataset from Kaggle containing anonymized credit card transactions with binary fraud labels.
+
+### 2. Data Preprocessing
+- Checked and handled missing values (if any).
+- Scaled the `Amount` feature and transformed `Time` for better model input.
+- Performed a stratified train-test split to preserve class distribution.
+
+### 3. Feature Engineering
+- Analyzed feature importance using Random Forest.
+- Balanced the dataset using **SMOTE** to address severe class imbalance (~0.17% fraud cases).
+
+### 4. Model Training
+- Trained a **Random Forest** classifier.
+- Applied cross-validation and hyperparameter tuning to optimize performance.
+
+### 5. Model Evaluation
+- Evaluated performance using:
+  - **Confusion Matrix**
+  - **Accuracy**, **Precision**, **Recall**, **F1-Score**
+  - **ROC-AUC Score**
+- Focused on improving recall for the fraud class due to its critical importance.
+
+### 6. Results Visualization
+- Plotted confusion matrix, ROC curve, and feature importance.
+
+---
+
+## Key Results
+- Achieved high **ROC-AUC**, strong **precision and recall** for detecting fraudulent transactions.
+- Random Forest performed well under SMOTE-balanced data.
+
+---
+
+## Future Improvements (Optional)
+- Try advanced models like **XGBoost** or **LightGBM**.
+- Build a simple **Streamlit** or **Flask** app to make predictions.
+- Deploy the model via API or web interface.
